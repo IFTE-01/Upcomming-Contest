@@ -15,12 +15,11 @@ async function getContests() {
     index = 0;
 
     contests.forEach(contest => { 
-        let box = contest.event.toLowerCase(); 
-
+        let box = contest.event.toLowerCase();  
     if (isUpcoming(contest.start) && 
         (box.includes("codeforces") ||
          box.includes("atcoder beginner") ||
-         box.includes("codechef") ||
+         (contest.href.includes("codechef") && box.includes("starter")) ||
          contest.href.includes("leetcode"))){
             contest_info[index] = [
                 contest.id,
@@ -94,7 +93,7 @@ function showcard()
             if(contest_info[i][3].includes("codeforces")) logo = "./photo/image1.png";
             if(contest_info[i][3].includes("atcoder")) logo = "./photo/image2.png";
             if(contest_info[i][3].includes("leetcode")) logo = "./photo/image3.png";
-            if(contest_info[i][3].includes("codechef")) logo = "./photo/image4.png";
+            if(contest_info[i][3].includes("codechef")) logo = "./photo/image4.jpg";
             let contestName;
             if(contest_info[i][3].includes("codeforces")) contestName = "Codeforces";
             if(contest_info[i][3].includes("atcoder")) contestName = "Atcoder";
