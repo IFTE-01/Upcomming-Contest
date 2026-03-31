@@ -17,7 +17,7 @@ async function getContests() {
     contests.forEach(contest => { 
         let box = contest.event.toLowerCase();  
     if (isUpcoming(contest.start) && 
-        (box.includes("codeforces") ||
+        (contest.href("codeforces") ||
          box.includes("atcoder beginner") ||
          (contest.href.includes("codechef") && box.includes("starter")) ||
          contest.href.includes("leetcode"))){
